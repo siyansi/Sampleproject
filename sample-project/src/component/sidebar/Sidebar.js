@@ -8,16 +8,16 @@ const LeftContainer = () => {
   const navigate = useNavigate()
   return (
     <div style={{ width: "18%" }} className="">
-      <div className="w-full bg-rose-100 shadow-xl h-screen pt-4 pb-4">
+      <div className="w-full bg-green-600 shadow-xl h-screen pt-4 pb-4">
         <ul>
           <li>
           
               <button
                 type="button"
-                className={`sidebar-btn w-full border-b-2 border-b-rose-400 hover:bg-green-100  `}
+                className={`sidebar-btn w-full border-b-2 border-b-zinc-400 hover:bg-green-100  text-white hover:text-black  rounded-full `}
                 style={{ height: "50px", fontSize: "18px" }}
               >
-              <p className="text-xl font-bold"  onClick={()=>navigate('/school')}> School Info</p> 
+              <p className="text-xl font-bold"  onClick={()=>navigate('/dashboard')}>Dashboard </p> 
               </button>
          
           </li>
@@ -25,45 +25,45 @@ const LeftContainer = () => {
            
               <button
                 type="button"
-                className={`sidebar-btn w-full border-b-2 hover:bg-green-100 border-b-rose-400 `}
+                className={`sidebar-btn w-full border-b-2 border-b-zinc-400 hover:bg-green-100  text-white hover:text-black  rounded-full`}
                 style={{ height: "50px", fontSize: "18px" }}
               >
-               <p className="text-xl font-bold"  onClick={()=>navigate('/dashboard')}> Dashboard</p>
+               <p className="text-xl font-bold"  onClick={()=>navigate('/employeinfo')}> Employees Info</p>
               </button>
            
           </li>
           <li>
             <button
               type="button"
-              className="sidebar-btn w-full border-b-2 hover:bg-green-100 border-b-rose-400"
+              className="sidebar-btn w-full border-b-2 border-b-zinc-400 hover:bg-green-100  text-white hover:text-black  rounded-full"
               style={{ height: "50px", fontSize: "18px" }}
             >
-             <p className="text-xl font-bold"  onClick={()=>navigate('/student')}>Student List</p>
+             <p className="text-xl font-bold"  onClick={()=>navigate('/employestatus')}>Employe Status</p>
             </button>
           </li>
           <li>
             
               <button
                 type="button"
-                className={`sidebar-btn w-full border-b-2 hover:bg-green-100 border-b-rose-400 $`}
+                className={`sidebar-btn w-full border-b-2 border-b-zinc-400 hover:bg-green-100  text-white hover:text-black  rounded-full $`}
                 style={{ height: "50px", fontSize: "18px" }}
               >
               <p className="text-xl font-bold" onClick={()=>navigate('/checkin')}>Checkin Page</p>  
               </button>
         
           </li>
-          <Link to="/dashboard">  <li className="">
+          <Link to="/profiles">  <li className="">
             <button
               type="button"
-              className="sidebar-btn w-full border-b-2 hover:bg-green-100 border-b-rose-400"
+              className="sidebar-btn w-full border-b-2 border-b-zinc-400 hover:bg-green-100  text-white hover:text-black rounded-full"
               style={{ height: "50px", fontSize: "18px" }}
             >
-             <p className="text-xl font-bold"> Profile</p> 
+             <p className="text-xl font-bold"> Profiles</p> 
             </button>
           </li></Link>
         </ul>
         <div className="place-content-center flex mt-16">
-        <button className="bg-rose-400 h-12 w-28 rounded-xl hover:bg-green-100" onClick={()=>navigate('/createuser')}>
+        <button className="bg-green-300 h-12 w-28 rounded-xl hover:bg-green-100" onClick={()=>navigate('/createuser')}>
             Create User 
         </button>
       </div>
