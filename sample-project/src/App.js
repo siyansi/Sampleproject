@@ -11,6 +11,7 @@ import Checkinpage from './component/checkinpage/Checkinpage';
 import Profiles from './component/Profiles/Profiles';
 import EmployeStatus from './component/employestatus/EmployeStatus';
 import EmployeInfo from './component/employeinfo/EmployeInfo';
+import FirebaseTable from './component/employeinfo/EmployeInfo';
  
 function App() {
 return (
@@ -24,7 +25,7 @@ return (
         <Route exact path="/createuser" element={<AuthGurad component={<Createuser/>} />} />
         <Route exact path="/checkin" element={<AuthGurad component={<Checkinpage/>} />} />
         <Route exact path="/home" element={<AuthGurad component={<Dashboard/>} />} />
-        <Route exact path="/employeinfo" element={<AuthGurad component={<EmployeInfo/>} />} />
+        <Route exact path="/employeinfo" element={<AuthGurad component={<FirebaseTable/>} />} />
         <Route exact path="/employestatus" element={<AuthGurad component={<EmployeStatus/>} />} />
         <Route exact path="/profiles" element={<AuthGurad component={<Profiles/>} />} />
     </Routes>
