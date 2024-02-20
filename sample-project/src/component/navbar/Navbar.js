@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { HiMenuAlt2 } from 'react-icons/hi';
 import { IoIosNotifications } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+
 //import emptyImg from "../../asset/undraw_empty_re_opql.svg"
 //import logo from "../../asset/vecteezy_apex-lengends-logo-png-apex-lengends-icon-transparent-png_27127464.png"
 
@@ -21,10 +22,10 @@ const Navbar = () => {
 
     return (
        
-        <nav className=" h-24 bg-rose-100 flex justify-between items-center px-6 border-b border-gray-300">
+        <nav className=" h-24 bg-green-600 flex justify-between items-center px-6 border-b border-gray-300">
             <div className="flex items-center">
                 <img className=" h-16 w-16" src ={"https://img.freepik.com/free-vector/hand-drawn-high-school-logo-design_23-2149613319.jpg?size=626&ext=jpg&ga=GA1.1.1726861027.1704513461&semt=ais"} alt="logo" height={50} width={50} />
-                <h1 className="font-poppins font-semibold text-3xl ml-8">Addence</h1>
+                <h1 className="font-poppins font-semibold text-white text-3xl ml-8">digisAilor</h1>
             </div>
             {width > 768 ?
                 <div className="flex items-center gap-6">
@@ -38,13 +39,13 @@ const Navbar = () => {
                         <span className="msg-count"></span>
                     </button>
                     <button className="button">
-                        <p className="text-white font-semibold" onClick={()=>navigate('/login')}> Logout</p>
+                        <p className="text-white font-semibold" onClick={()=>navigate('/')}> Logout</p>
                     </button>
                 </div> :
                 <div className="drawer">
                     <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-                    <div className="drawer-content">
-                        <label htmlFor="my-drawer" className="menu-bar"><HiMenuAlt2 className="h-6 w-6" /></label>
+                    <div className="drawer-content text-end flex place-content-end">
+                        <label htmlFor="my-drawer" className="menu-bar"><HiMenuAlt2 className="text-end" /></label>
                     </div>
                     <div className="drawer-side z-10">
                         <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
