@@ -24,7 +24,7 @@ const Loginpage = () => {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen ">
       {/* Left side with the image */}
       <div className="hidden lg:block lg:w-1/2 bg-gray-200">
         {/* You can replace this with your school image */}

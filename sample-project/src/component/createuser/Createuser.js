@@ -77,7 +77,7 @@ const Createuser = () => {
             {error && <p className="text-red-500 mb-4">{error}</p>}
             <button
                 type="submit"
-                className="bg-rose-400 text-white px-4 py-2 rounded-md hover:bg-blue-300 focus:outline-none w-full"
+                className="bg-black text-white px-4 py-2 rounded-md hover:bg-green-100 hover:text-black focus:outline-none w-full"
             >
                 Create User
             </button>

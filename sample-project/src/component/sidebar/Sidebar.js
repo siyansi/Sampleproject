@@ -7,14 +7,14 @@ const LeftContainer = () => {
 
   const navigate = useNavigate()
   return (
-    <div style={{ width: "18%" }} className=" hidden md:block">
-      <div className="w-full bg-green-600 shadow-xl h-screen pt-4 pb-4">
+    <div style={{ width: "18%" }} className=" hidden md:block  fixed top-[95px]">
+      <div className="w-full bg-black shadow-xl h-screen pt-4 pb-4">
         <ul>
           <li>
           
               <button
                 type="button"
-                className={`sidebar-btn w-full border-b-2 border-b-zinc-400 hover:bg-green-100  text-white hover:text-black  rounded-full `}
+                className={`sidebar-btn w-full   hover:bg-green-100  text-white hover:text-black  rounded-full `}
                 style={{ height: "50px", fontSize: "18px" }}
               >
               <p className="text-xl font-bold"  onClick={()=>navigate('/dashboard')}>Dashboard </p> 
@@ -25,7 +25,7 @@ const LeftContainer = () => {
            
               <button
                 type="button"
-                className={`sidebar-btn w-full border-b-2 border-b-zinc-400 hover:bg-green-100  text-white hover:text-black  rounded-full`}
+                className={`sidebar-btn w-full  hover:bg-green-100  text-white hover:text-black  rounded-full`}
                 style={{ height: "50px", fontSize: "18px" }}
               >
                <p className="text-xl font-bold"  onClick={()=>navigate('/employeinfo')}> Employees Info</p>
@@ -35,7 +35,7 @@ const LeftContainer = () => {
           <li>
             <button
               type="button"
-              className="sidebar-btn w-full border-b-2 border-b-zinc-400 hover:bg-green-100  text-white hover:text-black  rounded-full"
+              className="sidebar-btn w-full   hover:bg-green-100  text-white hover:text-black  rounded-full"
               style={{ height: "50px", fontSize: "18px" }}
             >
              <p className="text-xl font-bold"  onClick={()=>navigate('/employestatus')}>Employe Status</p>
@@ -45,7 +45,7 @@ const LeftContainer = () => {
             
               <button
                 type="button"
-                className={`sidebar-btn w-full border-b-2 border-b-zinc-400 hover:bg-green-100  text-white hover:text-black  rounded-full $`}
+                className={`sidebar-btn w-full  hover:bg-green-100  text-white hover:text-black  rounded-full $`}
                 style={{ height: "50px", fontSize: "18px" }}
               >
               <p className="text-xl font-bold" onClick={()=>navigate('/checkin')}>Checkin Page</p>  
@@ -55,15 +55,15 @@ const LeftContainer = () => {
           <Link to="/profiles">  <li className="">
             <button
               type="button"
-              className="sidebar-btn w-full border-b-2 border-b-zinc-400 hover:bg-green-100  text-white hover:text-black rounded-full"
+              className="sidebar-btn w-full    hover:bg-green-100  text-white hover:text-black rounded-full"
               style={{ height: "50px", fontSize: "18px" }}
             >
-             <p className="text-xl font-bold"> Profiles</p> 
+             <p className="text-xl font-bold "> Profiles</p> 
             </button>
           </li></Link>
         </ul>
         <div className="place-content-center flex mt-16">
-        <button className="bg-green-300 h-12 w-28 rounded-xl hover:bg-green-100" onClick={()=>navigate('/createuser')}>
+        <button className="bg-white h-12 w-28 rounded-xl hover:bg-green-100" onClick={()=>navigate('/createuser')}>
             Create User 
         </button>
       </div>
