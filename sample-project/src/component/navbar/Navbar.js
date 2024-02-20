@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { HiMenuAlt2 } from 'react-icons/hi';
 import { IoIosNotifications } from "react-icons/io";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 //import emptyImg from "../../asset/undraw_empty_re_opql.svg"
 //import logo from "../../asset/vecteezy_apex-lengends-logo-png-apex-lengends-icon-transparent-png_27127464.png"
@@ -49,12 +49,65 @@ const Navbar = () => {
                     </div>
                     <div className="drawer-side z-10">
                         <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-                        <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-                            <li><a>Home</a></li>
-                            <li><a>About</a></li>
-                            <li><a>Contact</a></li>
-                            <li><a href="" target="_blank">Logout</a></li>
-                        </ul>
+                        <ul className="menu p-4 w-80 min-h-full bg-green-600 text-base-content">
+                        <li>
+          
+          <button
+            type="button"
+            className={`sidebar-btn w-full border-b-2 border-b-zinc-400 hover:bg-green-100  text-white hover:text-black  rounded-full `}
+            style={{ height: "50px", fontSize: "18px" }}
+          >
+          <p className="text-xl font-bold"  onClick={()=>navigate('/dashboard')}>Dashboard </p> 
+          </button>
+     
+      </li>
+      <li>
+       
+          <button
+            type="button"
+            className={`sidebar-btn w-full border-b-2 border-b-zinc-400 hover:bg-green-100  text-white hover:text-black  rounded-full`}
+            style={{ height: "50px", fontSize: "18px" }}
+          >
+           <p className="text-xl font-bold"  onClick={()=>navigate('/employeinfo')}> Employees Info</p>
+          </button>
+       
+      </li>
+      <li>
+        <button
+          type="button"
+          className="sidebar-btn w-full border-b-2 border-b-zinc-400 hover:bg-green-100  text-white hover:text-black  rounded-full"
+          style={{ height: "50px", fontSize: "18px" }}
+        >
+         <p className="text-xl font-bold"  onClick={()=>navigate('/employestatus')}>Employe Status</p>
+        </button>
+      </li>
+      <li>
+        
+          <button
+            type="button"
+            className={`sidebar-btn w-full border-b-2 border-b-zinc-400 hover:bg-green-100  text-white hover:text-black  rounded-full $`}
+            style={{ height: "50px", fontSize: "18px" }}
+          >
+          <p className="text-xl font-bold" onClick={()=>navigate('/checkin')}>Checkin Page</p>  
+          </button>
+    
+      </li>
+      <Link to="/profiles">  <li className="">
+        <button
+          type="button"
+          className="sidebar-btn w-full border-b-2 border-b-zinc-400 hover:bg-green-100  text-white hover:text-black rounded-full"
+          style={{ height: "50px", fontSize: "18px" }}
+        >
+         <p className="text-xl font-bold"> Profiles</p> 
+        </button>
+      </li></Link>
+    
+    <li className="place-content-center flex mt-16">
+    <button className="bg-green-300 h-12 w-28 rounded-xl hover:bg-green-100" onClick={()=>navigate('/createuser')}>
+        Create User 
+    </button>
+  </li>
+  </ul>            
                     </div>
                 </div>
                 }
