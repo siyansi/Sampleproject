@@ -32,30 +32,6 @@ const FirebaseTable = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Firebase Data Table</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            {/* Add more table headers as needed */}
-          </tr>
-        </thead>
-        <tbody>
-          {data.map(item => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.name}</td>
-              <td>{item.email}</td>
-              {/* Add more table data fields as needed */}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-};
+
 
 export default FirebaseTable;

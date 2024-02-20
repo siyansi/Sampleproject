@@ -21,11 +21,11 @@ const Navbar = () => {
     const navigate = useNavigate()
 
     return (
-       
-        <nav className=" h-24 bg-green-600 flex justify-between items-center px-6 border-b border-gray-300">
+       <div className="fixed top-0 w-screen">
+        <nav className=" h-24 bg-black flex justify-between items-center px-6 border-b border-gray-300 ">
             <div className="flex items-center">
-                <img className=" h-16 w-16" src ={"https://img.freepik.com/free-vector/hand-drawn-high-school-logo-design_23-2149613319.jpg?size=626&ext=jpg&ga=GA1.1.1726861027.1704513461&semt=ais"} alt="logo" height={50} width={50} />
-                <h1 className="font-poppins font-semibold text-white text-3xl ml-8">digisAilor</h1>
+                {/* <img className=" h-16 w-16" src ={"https://img.freepik.com/free-vector/hand-drawn-high-school-logo-design_23-2149613319.jpg?size=626&ext=jpg&ga=GA1.1.1726861027.1704513461&semt=ais"} alt="logo" height={50} width={50} /> */}
+                <h1 className="font-poppins font-semibold text-white text-4xl ml-8 flex">digis <p className="text-green-500">Ai</p>lor</h1>
             </div>
             {width > 768 ?
                 <div className="flex items-center gap-6">
@@ -45,7 +45,7 @@ const Navbar = () => {
                 <div className="drawer">
                     <input id="my-drawer" type="checkbox" className="drawer-toggle" />
                     <div className="drawer-content text-end flex place-content-end">
-                        <label htmlFor="my-drawer" className="menu-bar"><HiMenuAlt2 className="text-end" /></label>
+                        <label htmlFor="my-drawer" className="menu-bar"><HiMenuAlt2 className="text-end text-white h-10 w-10" /></label>
                     </div>
                     <div className="drawer-side z-10">
                         <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
@@ -124,7 +124,7 @@ const Navbar = () => {
                 </div>
             </dialog>
         </nav>
-      
+        </div>
     )
 }
 
