@@ -7,7 +7,7 @@ const LeftContainer = () => {
 
   const navigate = useNavigate()
   return (
-    <div style={{ width: "18%" }} className="">
+    <div style={{ width: "18%" }} className=" hidden md:block">
       <div className="w-full bg-green-600 shadow-xl h-screen pt-4 pb-4">
         <ul>
           <li>

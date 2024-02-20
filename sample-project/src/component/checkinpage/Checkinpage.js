@@ -98,7 +98,7 @@
         <div>
           <div className="text-end align-end mt-10 mr-10 ">
             <button onClick={startVideo} className="icon-button   aling-center rounded-xl">
-              <FaCamera className="text-3xl text-rose-200 text-center" />
+              <FaCamera className="text-3xl text-rose-300 text-center" />
             </button>
           </div>
           <div className="relative text-end">
