@@ -14,7 +14,7 @@ const LeftContainer = () => {
           
               <button
                 type="button"
-                className={`sidebar-btn w-full   hover:bg-green-100  text-white hover:text-black  rounded-full `}
+                className={`sidebar-btn w-full   hover:bg-green-100  text-white hover:text-black  rounded-xl   `}
                 style={{ height: "50px", fontSize: "18px" }}
               >
               <p className="text-xl font-bold"  onClick={()=>navigate('/dashboard')}>Dashboard </p> 
@@ -25,7 +25,7 @@ const LeftContainer = () => {
            
               <button
                 type="button"
-                className={`sidebar-btn w-full  hover:bg-green-100  text-white hover:text-black  rounded-full`}
+                className={`sidebar-btn w-full  hover:bg-green-100  text-white hover:text-black  rounded-xl`}
                 style={{ height: "50px", fontSize: "18px" }}
               >
                <p className="text-xl font-bold"  onClick={()=>navigate('/employeinfo')}> Employees Info</p>
@@ -35,7 +35,7 @@ const LeftContainer = () => {
           <li>
             <button
               type="button"
-              className="sidebar-btn w-full   hover:bg-green-100  text-white hover:text-black  rounded-full"
+              className="sidebar-btn w-full   hover:bg-green-100  text-white hover:text-black  rounded-xl"
               style={{ height: "50px", fontSize: "18px" }}
             >
              <p className="text-xl font-bold"  onClick={()=>navigate('/employestatus')}>Employe Status</p>
@@ -45,7 +45,7 @@ const LeftContainer = () => {
             
               <button
                 type="button"
-                className={`sidebar-btn w-full  hover:bg-green-100  text-white hover:text-black  rounded-full $`}
+                className={`sidebar-btn w-full  hover:bg-green-100  text-white hover:text-black  rounded-xl $`}
                 style={{ height: "50px", fontSize: "18px" }}
               >
               <p className="text-xl font-bold" onClick={()=>navigate('/checkin')}>Checkin Page</p>  
@@ -55,7 +55,7 @@ const LeftContainer = () => {
           <Link to="/profiles">  <li className="">
             <button
               type="button"
-              className="sidebar-btn w-full    hover:bg-green-100  text-white hover:text-black rounded-full"
+              className="sidebar-btn w-full    hover:bg-green-100  text-white hover:text-black rounded-xl"
               style={{ height: "50px", fontSize: "18px" }}
             >
              <p className="text-xl font-bold "> Profiles</p> 
@@ -75,3 +75,4 @@ const LeftContainer = () => {
 };
 
 export default LeftContainer;
+
