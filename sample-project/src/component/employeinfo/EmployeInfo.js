@@ -1,37 +1,52 @@
 import React, { useState, useEffect } from 'react';
-import firebase from 'firebase/app';
-import 'firebase/database';
+import { db } from '../../firebase/firebase.config';
+import { collection,getDocs } from 'firebase/firestore';
 
-const FirebaseTable = () => {
-  const [data, setData] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const db = firebase.database();
-        const snapshot = await db.ref('your/firebase/path').once('value');
-        const fetchedData = snapshot.val();
-        if (fetchedData) {
-          const dataArray = Object.keys(fetchedData).map(key => ({
-            id: key,
-            ...fetchedData[key]
-          }));
-          setData(dataArray);
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error);
+const EmployeInfo = () => {
+
+  const [val,setVal]=useState([]);
+ 
+  const value=collection(db,"users")
+
+  useEffect(()=>{
+    const getData=async()=>{
+      try{
+        const dbval=await getDocs(value)
+      setVal(dbval.docs.map(doc=>({...doc.data(),id:doc.id})))
       }
-    };
-
-    fetchData();
-
-    // Clean up function (optional)
-    return () => {
-      // Do cleanup if necessary
-    };
-  }, []);
+      catch(err){
+        console.log(err)
+      }
+    }
+    getData()
+  })
 
   return (
 
+    <div>
+    <table>
+      <thead>
+        <tr>
+          <td>USERNAME</td>
+          <td>EMAIL</td>
+          <td>ROLE</td>
+        </tr>
+      </thead>
+      <tbody>
+          {val.map(details=>(
+            <tr key={details.id}>
+              <td>{details.userName}</td>
+              <td>{details.email}</td>
+              <td>{details.role}</td>
+            </tr>
+          ))}
+       
+      </tbody>
+    </table>
+     
+    </div>
+  );
+};
 
-export default FirebaseTable;
+export default EmployeInfo;
