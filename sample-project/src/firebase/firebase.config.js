@@ -56,8 +56,8 @@ const firebaseConfig = {
   projectId: "addence-e3b94",
   storageBucket: "addence-e3b94.appspot.com",
   messagingSenderId: "996493598479",
-  appId: "1:996493598479:web:40b2db1db940d6f5c1e87a",
-  measurementId: "G-15RKWXJ4MS"
+  appId: "1:996493598479:web:b01f63bf1466e806c1e87a",
+  measurementId: "G-WD4TYQQP27"
 };
 
 // Initialize Firebase

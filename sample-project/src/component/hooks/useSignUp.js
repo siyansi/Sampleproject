@@ -11,7 +11,7 @@ const useSignUp = (auth) => {
     try {
       const response = await createUserWithEmailAndPassword(auth, email, password);
       const user = response.user;
-      console.log(user.uid);
+      console.log( "data will stored ",user.uid);
 
       // Update the user's profile with their name
       await updateProfile(user, { displayName: `${userName} ${role}` });
