@@ -11,14 +11,17 @@ const EmployeInfo = () => {
  
   const value=collection(db,"user")
 
-  useEffect(()=>{
-    const getData=async()=>{
-      const dbval=await getDocs(value)
-      setVal(dbval.docs.map(doc=>({...doc.data(),id:doc.id})))
-    }
-    getData()
-  })
-
+  
+  
+  // Function to fetch data when button is clicked
+  const fetchDataOnClick = () => {
+    const getData = async () => {
+      const dbval = await getDocs(value);
+      setVal(dbval.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+    };
+    // Call the getData function when button is clicked
+    getData();
+  };
   const handleDelete=async(id)=>{
     // const deleteValue=doc(database,"demo",id)
     const deleteValue=doc(db,"user",id)
@@ -30,7 +33,7 @@ const EmployeInfo = () => {
 
 
     <div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto w-full">
   <table className="table table-zebra w-[600px] ml-[400px] mt-[200px] ">
     {/* head */}
     <thead>
@@ -55,45 +58,14 @@ const EmployeInfo = () => {
      }
     </tbody>
   </table>
+ 
 </div>
-
-
-
-
-
-
-
-
-
-    {/* <table>
-=======
-    <div className='  lg:ml-80 mt-24'>
-    <table>
-
-      <thead>
-        <tr>
-          <td>USERNAME</td>
-          <td>EMAIL</td>
-          <td>ROLE</td>
-        </tr>
-      </thead>
-      <tbody>
-          {val.map(details=>(
-            <tr key={details.id}>
-              <td>{details.userName}</td>
-              <td>{details.email}</td>
-              <td>{details.role}</td>
-            </tr>
-          ))}
-       
-      </tbody>
-
-    </table> */}
-     
-=======
-    </table>
-
-    </div>
+<div className=' flex place-content-end  mt-36'>
+    {/* Button to trigger data fetching */}
+    <button className='bg-white  text-black w-28 rounded-xl h-10 '  onClick={fetchDataOnClick}>Show Users</button>
+    {/* Render your data here */}
+  </div>
+</div>
   );
 };
 
@@ -101,40 +73,3 @@ export default EmployeInfo;
 
 
 
-//   return (
-
-//     <div>
-//     <table>
-//       <thead>
-//         <tr>
-//           <td>USERNAME</td>
-//           <td>EMAIL</td>
-//           <td>ROLE</td>
-//         </tr>
-//       </thead>
-//       <tbody>
-//           {val.map(details=>(
-//             <tr key={details.id}>
-//               <td>{details.userName}</td>
-//               <td>{details.email}</td>
-//               <td>{details.role}</td>
-//             </tr>
-//           ))}
-       
-//       </tbody>
-//     </table>
-     
-//     </div>
-//   );
-// };
-
-
-// import React from 'react'
-
-// const EmployeInfo = () => {
-//   return (
-//     <div className=' mt-24'>EmployeInfo</div>
-//   )
-// }
-
-// export default EmployeInfo
