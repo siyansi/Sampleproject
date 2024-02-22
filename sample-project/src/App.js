@@ -1,4 +1,7 @@
 // import logo from './logo.svg';
+
+
+import React, { lazy, useEffect } from 'react'
 import './App.css';
 import Dashboard from './component/dashboard/Dashboard';
 //import Checkinpage from './component/checkinpage/Checkinpage';
@@ -12,8 +15,15 @@ import Profiles from './component/Profiles/Profiles';
 import EmployeStatus from './component/employestatus/EmployeStatus';
 import EmployeInfo from './component/employeinfo/EmployeInfo';
 // import FirebaseTable from './component/employeinfo/EmployeInfo';
- 
+import { themeChange } from 'theme-change'
 function App() {
+
+  
+  useEffect(() => {
+    // 👆 daisy UI themes initialization
+    themeChange(false)
+  }, [])
+
 return (
     
     

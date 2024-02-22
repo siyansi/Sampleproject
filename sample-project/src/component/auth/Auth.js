@@ -3,24 +3,16 @@ import LeftContainer from "../sidebar/Sidebar"
 
 import React, { useState, useEffect } from "react";
 import { HiMenuAlt2 } from 'react-icons/hi';
+import { themeChange } from 'theme-change'
+    
 
-// const ResponsiveSidebarDrawer = () => {
-//     const [width, setWidth] = useState(window.innerWidth);
 
-//     useEffect(() => {
-//         const handleResize = () => {
-//             setWidth(window.innerWidth);
-//         };
-//         window.addEventListener('resize', handleResize);
-//         return () => {
-//             window.removeEventListener('resize', handleResize);
-//         };
-//     }, []);
-
-//     const openDrawer = () => {
-//         document.getElementById('my-drawer').checked = true;
-//     };
 const AuthGurad = ({component}) => {
+
+    useEffect(() => {
+        // 👆 daisy UI themes initialization
+        themeChange(false)
+      }, [])
 
     return(
         <div className="main-container">
@@ -29,7 +21,7 @@ const AuthGurad = ({component}) => {
 
             <Navbar/>
             <div className="flex main-bg-container">
-                <LeftContainer/>
+                <LeftContainer />
                 <div style={{width:"80%"}}> {component}</div>
                
             </div>

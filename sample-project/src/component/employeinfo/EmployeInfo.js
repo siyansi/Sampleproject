@@ -7,7 +7,7 @@ const EmployeInfo = () => {
 
   const [val,setVal]=useState([]);
  
-  const value=collection(db,"users")
+  const value=collection(db,"user")
 
   useEffect(()=>{
     const getData=async()=>{
@@ -21,7 +21,7 @@ const EmployeInfo = () => {
    
 
   return (
-    <div>
+    <div className='  lg:ml-80 mt-24'>
     <table>
       <thead>
         <tr>
@@ -41,7 +41,7 @@ const EmployeInfo = () => {
        
       </tbody>
     </table>
-     
+
     </div>
   );
 };
@@ -77,3 +77,12 @@ export default EmployeInfo;
 // };
 
 
+// import React from 'react'
+
+// const EmployeInfo = () => {
+//   return (
+//     <div className=' mt-24'>EmployeInfo</div>
+//   )
+// }
+
+// export default EmployeInfo
