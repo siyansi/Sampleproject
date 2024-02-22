@@ -12,7 +12,7 @@ const Dashboard = () => {
     <div className="ml-80 mt-24">
 
 <div className="grid lg:grid-cols-2 mt-4 grid-cols-1 gap-6">
-               <Dashes/>
+               {/* <Dashes/> */}
                 <LineChart />
                 <BarChart />
             </div>

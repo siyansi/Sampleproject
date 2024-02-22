@@ -28,7 +28,7 @@ const Checkinpage = () => {
         // Combine image URLs and dates
         const combinedData = datesData.map((dateItem, index) => ({
           id: index + 1,
-          imageUrl: imageURL +1 ,
+          imageUrl: imageURL,
           date: dateItem.date,
         }));
 
