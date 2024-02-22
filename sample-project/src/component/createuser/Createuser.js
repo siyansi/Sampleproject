@@ -35,6 +35,7 @@ const Createuser = () => {
             await signup({ email, password, role, userName });
             const userData = { email, role, userName };
             await addDoc(collection(db, "user"), userData);
+
             setEmail("");
             setPassword("");
             setRole("");
