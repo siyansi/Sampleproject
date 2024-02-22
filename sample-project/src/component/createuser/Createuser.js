@@ -19,7 +19,7 @@ const Createuser = () => {
 
             // Add user data to Firestore
             const userData = { email, role, userName };
-            await addDoc(collection(db, "users"), userData);
+            await addDoc(collection(db, "user"), userData);
 
             // Clear form fields
             setEmail("");
