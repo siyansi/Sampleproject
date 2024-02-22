@@ -28,6 +28,7 @@ const EmployeInfo = () => {
 
   return (
 
+
     <div>
       <div className="overflow-x-auto">
   <table className="table table-zebra w-[600px] ml-[400px] mt-[200px] ">
@@ -65,6 +66,10 @@ const EmployeInfo = () => {
 
 
     {/* <table>
+=======
+    <div className='  lg:ml-80 mt-24'>
+    <table>
+
       <thead>
         <tr>
           <td>USERNAME</td>
@@ -82,8 +87,12 @@ const EmployeInfo = () => {
           ))}
        
       </tbody>
+
     </table> */}
      
+=======
+    </table>
+
     </div>
   );
 };
@@ -120,3 +129,12 @@ export default EmployeInfo;
 // };
 
 
+// import React from 'react'
+
+// const EmployeInfo = () => {
+//   return (
+//     <div className=' mt-24'>EmployeInfo</div>
+//   )
+// }
+
+// export default EmployeInfo
