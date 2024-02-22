@@ -11,6 +11,16 @@ const EmployeInfo = () => {
  
   const value=collection(db,"user")
 
+  // useEffect(()=>{
+  //   const getData=async()=>{
+  //     const dbval=await getDocs(value)
+  //     setVal(dbval.docs.map(doc=>({...doc.data(),id:doc.id})))
+  //   }
+  //   getData()
+  // })
+
+
+
   
   
   // Function to fetch data when button is clicked
@@ -22,6 +32,7 @@ const EmployeInfo = () => {
     // Call the getData function when button is clicked
     getData();
   };
+
   const handleDelete=async(id)=>{
     // const deleteValue=doc(database,"demo",id)
     const deleteValue=doc(db,"user",id)
@@ -66,6 +77,10 @@ const EmployeInfo = () => {
     {/* Render your data here */}
   </div>
 </div>
+
+    </div>
+
+
   );
 };
 
