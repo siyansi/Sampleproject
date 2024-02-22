@@ -11,13 +11,15 @@ const EmployeInfo = () => {
  
   const value=collection(db,"user")
 
-  useEffect(()=>{
-    const getData=async()=>{
-      const dbval=await getDocs(value)
-      setVal(dbval.docs.map(doc=>({...doc.data(),id:doc.id})))
-    }
-    getData()
-  })
+  // useEffect(()=>{
+  //   const getData=async()=>{
+  //     const dbval=await getDocs(value)
+  //     setVal(dbval.docs.map(doc=>({...doc.data(),id:doc.id})))
+  //   }
+  //   getData()
+  // })
+
+
 
   const handleDelete=async(id)=>{
     // const deleteValue=doc(database,"demo",id)
@@ -56,43 +58,6 @@ const EmployeInfo = () => {
     </tbody>
   </table>
 </div>
-
-
-
-
-
-
-
-
-
-    {/* <table>
-=======
-    <div className='  lg:ml-80 mt-24'>
-    <table>
-
-      <thead>
-        <tr>
-          <td>USERNAME</td>
-          <td>EMAIL</td>
-          <td>ROLE</td>
-        </tr>
-      </thead>
-      <tbody>
-          {val.map(details=>(
-            <tr key={details.id}>
-              <td>{details.userName}</td>
-              <td>{details.email}</td>
-              <td>{details.role}</td>
-            </tr>
-          ))}
-       
-      </tbody>
-
-    </table> */}
-     
-=======
-    </table>
-
     </div>
   );
 };
@@ -100,41 +65,3 @@ const EmployeInfo = () => {
 export default EmployeInfo;
 
 
-
-//   return (
-
-//     <div>
-//     <table>
-//       <thead>
-//         <tr>
-//           <td>USERNAME</td>
-//           <td>EMAIL</td>
-//           <td>ROLE</td>
-//         </tr>
-//       </thead>
-//       <tbody>
-//           {val.map(details=>(
-//             <tr key={details.id}>
-//               <td>{details.userName}</td>
-//               <td>{details.email}</td>
-//               <td>{details.role}</td>
-//             </tr>
-//           ))}
-       
-//       </tbody>
-//     </table>
-     
-//     </div>
-//   );
-// };
-
-
-// import React from 'react'
-
-// const EmployeInfo = () => {
-//   return (
-//     <div className=' mt-24'>EmployeInfo</div>
-//   )
-// }
-
-// export default EmployeInfo
