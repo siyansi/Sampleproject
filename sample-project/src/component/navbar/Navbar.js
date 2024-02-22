@@ -52,13 +52,11 @@ const Navbar = () => {
       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
     </button>
                     </div>
-                    <div className="join join-vertical flex">
- <div> <input type="radio" name="theme-buttons" className="btn theme-controller join-item" aria-label="Default" value="default"/></div>
- <div> <input type="radio" name="theme-buttons" className="btn theme-controller join-item" aria-label="Retro" value="retro"/></div> 
- <div> <input type="radio" name="theme-buttons" className="btn theme-controller join-item" aria-label="Cyberpunk" value="cyberpunk"/></div> 
- <div><input type="radio" name="theme-buttons" className="btn theme-controller join-item" aria-label="Valentine" value="valentine"/></div> 
- <div> <input type="radio" name="theme-buttons" className="btn theme-controller join-item" aria-label="Aqua" value="aqua"/></div>
-</div>
+                    <label className="swap ">
+                <input type="checkbox"/>
+                <SunIcon data-set-theme="light" data-act-class="ACTIVECLASS" className={"fill-current text-white w-10 h-10 "+(currentTheme === "dark" ? "swap-on" : "swap-off")}/>
+                <MoonIcon data-set-theme="dark" data-act-class="ACTIVECLASS" className={"fill-current text-white w-10 h-10 "+(currentTheme === "light" ? "swap-on" : "swap-off")} />
+            </label>
                     <button className="inbox-btn" onClick={() => document.getElementById('my_modal_5').showModal()}>
                         <IoIosNotifications className="h-10 w-10 text-white" />
                         <span className="msg-count"></span>

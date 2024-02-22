@@ -21,6 +21,18 @@ const EmployeInfo = () => {
 
 
 
+  
+  
+  // Function to fetch data when button is clicked
+  const fetchDataOnClick = () => {
+    const getData = async () => {
+      const dbval = await getDocs(value);
+      setVal(dbval.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+    };
+    // Call the getData function when button is clicked
+    getData();
+  };
+
   const handleDelete=async(id)=>{
     // const deleteValue=doc(database,"demo",id)
     const deleteValue=doc(db,"user",id)
@@ -32,7 +44,7 @@ const EmployeInfo = () => {
 
 
     <div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto w-full">
   <table className="table table-zebra w-[600px] ml-[400px] mt-[200px] ">
     {/* head */}
     <thead>
@@ -57,11 +69,22 @@ const EmployeInfo = () => {
      }
     </tbody>
   </table>
+ 
 </div>
+<div className=' flex place-content-end  mt-36'>
+    {/* Button to trigger data fetching */}
+    <button className='bg-white  text-black w-28 rounded-xl h-10 '  onClick={fetchDataOnClick}>Show Users</button>
+    {/* Render your data here */}
+  </div>
+</div>
+
     </div>
+
+
   );
 };
 
 export default EmployeInfo;
+
 
 
