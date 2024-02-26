@@ -12,7 +12,7 @@ const Createuser = () => {
     const [signup, error] = useSignup(auth);
     const [userRole, setUserRole] = useState(null);
 
-    useEffect(() => {
+    
         const fetchUserRole = async () => {
             try {
                 const currentUser = auth.currentUser;
@@ -26,8 +26,8 @@ const Createuser = () => {
             }
         };
 
-        fetchUserRole();
-    }, []);
+       
+    ;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -48,8 +48,8 @@ const Createuser = () => {
     return (
         <div className="h-screen flex justify-center items-center ">
            
-                <form onSubmit={handleSubmit} className="bg-gray-100 p-8 rounded shadow-md w-full sm:max-w-md sm:justify-center">
-                    <h1 className="text-2xl font-semibold mb-6">Register</h1>
+                <form onSubmit={handleSubmit} className=" border border-cyan-300 p-8 rounded shadow-md w-full sm:max-w-lg sm:ml-24 md:ml-36">
+                    <h1 className="text-2xl font-semibold mb-6 text-cyan-50">Register</h1>
                     <div className="mb-4">
                         <input
                             type="email"
@@ -85,17 +85,21 @@ const Createuser = () => {
                             placeholder="User Name"
                             value={userName}
                             onChange={(e) => setUserName(e.target.value)}
+
                             className="border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none"
                             required
                         />
                     </div>
                     {error && <p className="text-red-500 mb-4">{error}</p>}
+                    <div className="flex place-content-center mt-2">
                     <button
                         type="submit"
-                        className="bg-black text-white px-4 py-2 rounded-md hover:bg-green-100 hover:text-black focus:outline-none w-full"
+                        onClick={fetchUserRole}
+                        className=" text-white px-4 py-2 rounded-md border text-center border-cyan-300  focus:outline-none w-32"
                     >
                         Create User
                     </button>
+                    </div>
                 </form>
             
         </div>

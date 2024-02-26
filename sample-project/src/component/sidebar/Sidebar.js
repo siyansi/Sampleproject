@@ -1,78 +1,79 @@
-import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate,} from "react-router-dom";
+import { themeChange } from 'theme-change'
 
-const LeftContainer = () => {
-  const location = useLocation();
+const LeftContainer = ({ currentTheme }) => {
+  const navigate = useNavigate();
+  const [activeSection, setActiveSection] = useState("Dashboard")
 
-
-  const navigate = useNavigate()
+  const navigateTo = (section) => {
+    setActiveSection(section);
+    // You can perform additional actions here such as navigation if needed
+  };
   return (
-    <div style={{ width: "18%" }} className=" hidden md:block  fixed top-[95px]">
-      <div className="w-full bg-black bg-opacity-75 shadow-xl h-screen pt-4 pb-4">
+    <div style={{ width: "18%" }} className="hidden md:block fixed top-[95px] ">
+      <div className={`w-full ${currentTheme === "dark" ? "text-white": "text-black "} bg-opacity-75 shadow-xl h-screen pt-6 pb-4 border-r  border-r-cyan-300  `}>
         <ul>
-          <li>
-          
-              <button
-                type="button"
-                className={`sidebar-btn w-full pl-3 text-start  hover:bg-green-100  text-white hover:text-black  rounded-xl   `}
-                style={{ height: "50px", fontSize: "18px" }}
-              >
-              <p className="text-2xl font-bold"  onClick={()=>navigate('/dashboard')}>Dashboard </p> 
-              </button>
-         
-          </li>
-          <li>
-           
-              <button
-                type="button"
-                className={`sidebar-btn w-full  hover:bg-green-100 text-start pl-3 text-white hover:text-black  rounded-xl`}
-                style={{ height: "50px", fontSize: "18px" }}
-              >
-               <p className="text-2xl font-bold"  onClick={()=>navigate('/employeinfo')}> Employees Info</p>
-              </button>
-           
-          </li>
-          <li>
+          <li className="mb-3">
             <button
               type="button"
-              className="sidebar-btn w-full   hover:bg-green-100 text-start pl-3 text-white hover:text-black  rounded-xl"
+              className={`sidebar-btn w-full  pl-3 text-start hover:border border-cyan-300 rounded-xl  hover:text-cyan-400  ${activeSection === "Dashboard" ? "active" : "text-cyan-500"} `}
               style={{ height: "50px", fontSize: "18px" }}
+              onClick={() => { setActiveSection("Dashboard"); navigate("/dashboard"); }}
             >
-             <p className="text-2xl font-bold"  onClick={()=>navigate('/employestatus')}>Employe Status</p>
+              <p className="text-2xl  font-semibold " style={{fontFamily:"Poppins"}}>Dashboard</p>
             </button>
           </li>
-          <li>
-            
-              <button
-                type="button"
-                className={`sidebar-btn w-full  hover:bg-green-100 text-start pl-3 text-white hover:text-black  rounded-xl $`}
-                style={{ height: "50px", fontSize: "18px" }}
-              >
-              <p className="text-2xl font-bold" onClick={()=>navigate('/checkin')}>Checkin Page</p>  
-              </button>
-        
-          </li>
-          <Link to="/profiles">  <li className="">
+          <li className="mb-3">
             <button
               type="button"
-              className="sidebar-btn w-full    hover:bg-green-100 text-start pl-3 text-white hover:text-black rounded-xl"
+              className={`sidebar-btn w-full pl-3 text-start hover:border border-cyan-300 rounded-xl hover:text-cyan-400`}
               style={{ height: "50px", fontSize: "18px" }}
+              onClick={() => navigate("/employeinfo")}
             >
-             <p className="text-2xl font-bold "> Profiles</p> 
+              <p className="text-2xl font-semibold " style={{fontFamily:"Poppins"}}>Employees Info</p>
             </button>
-          </li></Link>
+          </li>
+          <li className="mb-3">
+            <button
+              type="button"
+              className={`sidebar-btn w-full pl-3 text-start hover:border border-cyan-300 rounded-xl hover:text-cyan-400`}
+              style={{ height: "50px", fontSize: "18px" }}
+              onClick={() => navigate("/employestatus")}
+            >
+              <p className="text-2xl font-semibold " style={{fontFamily:"Poppins"}}>Tasks</p>
+            </button>
+          </li>
+          <li className="mb-3">
+            <button
+              type="button"
+              className={`sidebar-btn w-full pl-3 text-start hover:border border-cyan-300 rounded-xl hover:text-cyan-400`}
+              style={{ height: "50px", fontSize: "18px" }}
+              onClick={() => navigate("/checkin")}
+            >
+              <p className="text-2xl font-semibold " style={{fontFamily:"Poppins"}}>Checkin Page</p>
+            </button>
+          </li>
+          <Link to="/profiles">
+            <li className="mb-3">
+              <button
+                type="button"
+                className={`sidebar-btn w-full pl-3 text-start hover:border border-cyan-300 rounded-xl hover:text-cyan-400`}
+                style={{ height: "50px", fontSize: "18px" }}
+              >
+                <p className="text-2xl font-semibold " style={{fontFamily:"Poppins"}}>Profiles</p>
+              </button>
+            </li>
+          </Link>
         </ul>
         <div className="place-content-center flex mt-16">
-        <button className="bg-white h-12 w-28 rounded-xl hover:bg-green-100" onClick={()=>navigate('/createuser')}>
-            Create User 
-        </button>
+          <button className="  h-12 w-28  italic rounded-xl border border-cyan-300 hover:w-32 hover:h-14" onClick={() => navigate("/createuser")}>
+            Create User
+          </button>
+        </div>
       </div>
-      </div>
-
-     
     </div>
   );
 };
 
 export default LeftContainer;
-
