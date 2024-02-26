@@ -9,8 +9,46 @@ const Checkinpage = () => {
   const videoRef = useRef();
   const [imageData, setImageData] = useState([]); // State to store image data from Firestore
   const [cameraOpen, setCameraOpen] = useState(false); // State to manage camera open/close
+  const [modalOpen, setModalOpen] = useState(false);
+  const [userName, setUserName] = useState("");
 
-  useEffect(() => {
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+
+  const handleSubmit = async () => {
+    // Check if userName meets validation criteria
+    if (userName.trim() === '') {
+        // If userName is empty, display an error message to the user
+        alert('Please enter a valid user name.');
+        return;
+    }
+
+    // Query the database to check if the userName exists
+    try {
+        // Assuming db is your Firestore database reference
+        const querySnapshot = await getDocs(collection(db, 'users'));
+        const existingUserNames = querySnapshot.docs.map(doc => doc.data().userName);
+        
+        if (!existingUserNames.includes(userName)) {
+            // If userName doesn't exist in the database, display an error message
+            alert('User with the entered name does not exist.');
+            return;
+        }
+
+        // If userName is valid and exists, proceed to open the camera
+        startVideo(true);
+        closeModal();
+    } catch (error) {
+        console.error('Error checking user name:', error);
+        // Display an error message to the user (e.g., "Failed to check user name. Please try again.")
+    }
+};
     // Fetch image data and dates from Firestore
     const fetchData = async () => {
       try {
@@ -38,8 +76,7 @@ const Checkinpage = () => {
       }
     };
 
-    fetchData();
-  }, []);
+   
 
   // Other functions remain the same
 
@@ -88,18 +125,18 @@ const Checkinpage = () => {
   };
 
   return (
-<div className="lg:ml-80 mt-24 flex justify-center items-center">
+<div className="lg:ml-80 mt-24 flex justify-center items-center w-full">
   <div className="">
     <div className="max-w-full overflow-hidden">
-      <div className="flex">
-        <h2 className="text-lg font-semibold mb-2">Student Table</h2>
+      <div className="flex mt-10">
+        <h2 className="text-lg font-semibold mb-2 text-cyan-100">Student Table</h2>
       </div>
       <div className="shadow-md rounded-lg overflow-hidden">
         <table className="w-full">
-          <thead className="bg-gray-200">
+          <thead className="border-2 border-cyan-300">
             <tr>
-              <th className="py-2 px-4">Image</th>
-              <th className="py-2 px-4">Date</th>
+              <th className="py-2 px-6">Image</th>
+              <th className="py-2 px-6">Date</th>
             </tr>
           </thead>
           <tbody>
@@ -119,13 +156,17 @@ const Checkinpage = () => {
         </table>
       </div>
     </div>
+
+
+    <div className="ml-32">
+    <button  onClick={fetchData}>show User</button></div>
     <div>
       <div className="text-end align-end mt-10 mr-10">
         <button
-          onClick={startVideo}
+          onClick={openModal}
           className="icon-button aling-center rounded-xl"
         >
-          <FaCamera className="text-3xl text-rose-300 text-center" />
+          <FaCamera className="text-3xl text-cyan-100 text-center" />
         </button>
       </div>
       <div className="relative text-end">
@@ -153,6 +194,18 @@ const Checkinpage = () => {
         )}
       </div>
     </div>
+  <div>
+  {modalOpen && (
+          <div className="modal">
+            <div className="modal-content">
+              <span className="close" onClick={closeModal}>&times;</span>
+              <h2>Enter Your Name</h2>
+              <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} />
+              <button onClick={handleSubmit}>Submit</button>
+            </div>
+          </div>
+        )}
+  </div>
   </div>
 </div>
   );

@@ -12,10 +12,11 @@ import AuthGurad from './component/auth/Auth';
 import Createuser from './component/createuser/Createuser';
 import Checkinpage from './component/checkinpage/Checkinpage';
 import Profiles from './component/Profiles/Profiles';
-import EmployeStatus from './component/employestatus/EmployeStatus';
+//import EmployeStatus from './component/employestatus/EmployeStatus';
 import EmployeInfo from './component/employeinfo/EmployeInfo';
 // import FirebaseTable from './component/employeinfo/EmployeInfo';
 import { themeChange } from 'theme-change'
+import Taskpage from './component/employestatus/Taskpage';
 function App() {
 
   
@@ -36,7 +37,7 @@ return (
         <Route exact path="/checkin" element={<AuthGurad component={<Checkinpage/>} />} />
         <Route exact path="/home" element={<AuthGurad component={<Dashboard/>} />} />
         <Route exact path="/employeinfo" element={<AuthGurad component={<EmployeInfo/>} />} />
-        <Route exact path="/employestatus" element={<AuthGurad component={<EmployeStatus/>} />} />
+        <Route exact path="/employestatus" element={<AuthGurad component={<Taskpage/>} />} />
         <Route exact path="/profiles" element={<AuthGurad component={<Profiles/>} />} />
     </Routes>
     </div>
