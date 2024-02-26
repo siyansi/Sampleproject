@@ -26,8 +26,12 @@ const EmployeInfo = () => {
   // Function to fetch data when button is clicked
   const fetchDataOnClick = () => {
     const getData = async () => {
-      const dbval = await getDocs(value);
+      try{
+        const dbval = await getDocs(value);
       setVal(dbval.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+      }catch(err){
+        console.log(err)
+      }
     };
     // Call the getData function when button is clicked
     getData();
@@ -78,7 +82,7 @@ const EmployeInfo = () => {
   </div>
 </div>
 
-    </div>
+  
 
 
   );
