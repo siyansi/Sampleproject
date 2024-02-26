@@ -39,8 +39,8 @@ const Navbar = () => {
     const navigate = useNavigate()
 
     return (
-       <div className="fixed top-0 w-screen">
-        <nav className=" h-24 bg-black bg-opacity-75 flex justify-between items-center px-6 border-b border-gray-300 ">
+       <div className="fixed top-0 w-screen ">
+        <nav className=" h-24  bg-opacity-75 flex justify-between items-center px-6 border-b border-cyan-300 ">
             <div className="flex items-center">
                 {/* <img className=" h-16 w-16" src ={"https://img.freepik.com/free-vector/hand-drawn-high-school-logo-design_23-2149613319.jpg?size=626&ext=jpg&ga=GA1.1.1726861027.1704513461&semt=ais"} alt="logo" height={50} width={50} /> */}
                 <h1 className="font-poppins font-semibold text-white text-5xl ml-8 flex">digis <p className="text-green-500">Ai</p>lor</h1>
@@ -49,20 +49,20 @@ const Navbar = () => {
                 <div className="flex items-center gap-6">
                     <div className="relative">
                     <button className="btn btn-ghost btn-circle">
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-cyan-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
     </button>
                     </div>
                     <label className="swap ">
                 <input type="checkbox"/>
-                <SunIcon data-set-theme="light" data-act-class="ACTIVECLASS" className={"fill-current text-white w-10 h-10 "+(currentTheme === "dark" ? "swap-on" : "swap-off")}/>
-                <MoonIcon data-set-theme="dark" data-act-class="ACTIVECLASS" className={"fill-current text-white w-10 h-10 "+(currentTheme === "light" ? "swap-on" : "swap-off")} />
+                <SunIcon data-set-theme="light" data-act-class="ACTIVECLASS" className={"fill-current text-cyan-200 w-10 h-10 "+(currentTheme === "dark" ? "swap-on" : "swap-off")}/>
+                <MoonIcon data-set-theme="dark" data-act-class="ACTIVECLASS" className={"fill-current text-cyan-200 w-10 h-10 "+(currentTheme === "light" ? "swap-on" : "swap-off")} />
             </label>
                     <button className="inbox-btn" onClick={() => document.getElementById('my_modal_5').showModal()}>
-                        <IoIosNotifications className="h-10 w-10 text-white" />
+                        <IoIosNotifications className="h-10 w-10 text-cyan-200" />
                         <span className="msg-count"></span>
                     </button>
                     <button className="button">
-                        <p className="text-white font-semibold" onClick={()=>navigate('/')}> Logout</p>
+                        <p className="text-cyan-100 font-semibold" onClick={()=>navigate('/')}> Logout</p>
                     </button>
                 </div> :
                 <div className="drawer">
@@ -73,7 +73,7 @@ const Navbar = () => {
                     <div className="drawer-side z-10">
                         <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
                         
-                        <ul className="menu p-4 w-80 min-h-full bg-green-600 text-base-content">
+                        <ul className="menu p-4 w-80 min-h-full text-base-content">
                             <li>
                             <div>
                         <label className="swap  ">
@@ -87,7 +87,7 @@ const Navbar = () => {
           
           <button
             type="button"
-            className={`sidebar-btn w-full border-b-2 border-b-zinc-400 hover:bg-green-100  text-white hover:text-black  rounded-full `}
+            className={`sidebar-btn w-full border-b-zinc-400 hover:bg-green-100  text-white hover:text-black  rounded-full `}
             style={{ height: "50px", fontSize: "18px" }}
           >
           <p className="text-xl font-bold"  onClick={()=>navigate('/dashboard')}>Dashboard </p> 
@@ -98,7 +98,7 @@ const Navbar = () => {
        
           <button
             type="button"
-            className={`sidebar-btn w-full border-b-2 border-b-zinc-400 hover:bg-green-100  text-white hover:text-black  rounded-full`}
+            className={`sidebar-btn w-full border-b-zinc-400 hover:bg-green-100  text-white hover:text-black  rounded-full`}
             style={{ height: "50px", fontSize: "18px" }}
           >
            <p className="text-xl font-bold"  onClick={()=>navigate('/employeinfo')}> Employees Info</p>

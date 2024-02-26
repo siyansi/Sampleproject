@@ -34,25 +34,25 @@ const EmployeInfo = () => {
 
     <div>
       <div className="overflow-x-auto w-full">
-  <table className="table table-zebra w-[600px] ml-[400px] mt-[200px] ">
+  <table className="table table-zebra w-[600px] ml-[400px] mt-[200px]   ">
     {/* head */}
     <thead>
-    <tr key={val.id}>
-        <th>USERNAME</th>
+    <tr key={val.id} className=' border-b-2 border-cyan-400 text-cyan-100 text-lg'>
+        <th >USERNAME</th >
         <th>EMAIL</th>
         <th>ROLE</th>
-        <th>EDIT</th>
+        <th >EDIT</th>
       </tr>
     </thead>
     <tbody>
       {/* row 1 */}
       {
         val.map(details=><tr>
-            <td>{details.userName}</td>
+            <td c>{details.userName}</td>
             <td>{details.email}</td>
             <td>{details.role}</td>
             <td>
-                <button className='btn btn-outline btn-sm btn-info h-10 ' onClick={()=>handleDelete(details.id)}>DELETE</button>
+                <button className='border w-24 h-10 rounded-xl border-cyan-400 text-white hover:text-red-500 hover:border-red-600' onClick={()=>handleDelete(details.id)}>DELETE</button>
             </td>
         </tr>)
      }
@@ -62,7 +62,7 @@ const EmployeInfo = () => {
 </div>
 <div className=' flex place-content-end  mt-36'>
     {/* Button to trigger data fetching */}
-    <button className='bg-white  text-black w-28 rounded-xl h-10 '  onClick={fetchDataOnClick}>Show Users</button>
+    <button className='border-2 border-cyan-300  text-white w-28 rounded-xl h-10 '  onClick={fetchDataOnClick}>Show Users</button>
     {/* Render your data here */}
   </div>
 </div>
