@@ -25,6 +25,7 @@ const Taskpage = () => {
   const [isDueInputVisible, setIsDueInputVisible] = useState(false);
   const [isProjectInputVisible, setIsProjectInputVisible] = useState(false);
   const [tasks, setTasks] = useState([]);
+
   const [id, setId] = useState('');
   const valuedb = collection(db, "tasks");
   const [editTaskId, setEditTaskId] = useState(null); 
@@ -278,7 +279,6 @@ const Taskpage = () => {
             </dialog>
           </div>
         </div>
-    
         {/* Filter Component */}
         <div className="flex justify-between items-center rounded-full py-2 px-4 mt-4">
           {/* Filter Buttons */}
@@ -391,9 +391,17 @@ const Taskpage = () => {
               </table>
             </div>
           ))}
+
         </div>
       </div>
+
+       
+    </div>
+ 
     );
+
 };
 
 export default Taskpage;
+
+

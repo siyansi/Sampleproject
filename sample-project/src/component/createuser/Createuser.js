@@ -33,7 +33,7 @@ const Createuser = () => {
         e.preventDefault();
         try {
             await signup({ email, password, role, userName });
-            const userData = { email, role, userName };
+            const userData = { email, role, username: userName };
             await addDoc(collection(db, "user"), userData);
 
             setEmail("");
