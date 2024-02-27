@@ -24,8 +24,43 @@ const Taskpage = () => {
   const [isDueInputVisible, setIsDueInputVisible] = useState(false);
   const [isProjectInputVisible, setIsProjectInputVisible] = useState(false);
   const [tasks, setTasks] = useState([]);
-   
+  const [editModalVisible, setEditModalVisible] = useState(false);
+  const [editedTask, setEditedTask] = useState(
+    null
+  );
   
+
+  const handleEditTask = (task) => {
+    setEditedTask(task);
+    setEditModalVisible(true);
+  };
+
+
+  const handleDeleteTask = async (task) => {
+    try {
+      // Delete the task from the database
+      await db.collection("tasks").doc(task.id).delete();
+      console.log("Task deleted successfully!");
+      // Update the task data state to reflect the deletion
+      setTasks(tasks.filter((t) => t.id !== task.id));
+    } catch (error) {
+      console.error("Error deleting task: ", error);
+    }
+  };
+
+  const handleApplyChanges = async (editedTask) => {
+    try {
+      // Update the task with the edited values in the database
+      await db.collection("tasks").doc(editedTask.id).update(editedTask);
+      console.log("Task updated successfully!");
+      // Close the Edit modal
+      setEditModalVisible(false);
+    } catch (error) {
+      console.error("Error updating task: ", error);
+    }
+  };
+
+
   useEffect(() => {
   const fetchData = async () => {
     try {
@@ -240,20 +275,84 @@ const Taskpage = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr key={task.id}>
                 <td>{task.assigned}</td>
                 <td>{task.status}</td>
                 <td>{task.summary}</td>
                 <td>{task.due}</td>
                 <td>{task.project}</td>
+                <td>
+                <button className="border border-cyan-300 w-14 h-6 rounded-lg" onClick={() => document.getElementById('my_modal_4').showModal()}>Edit</button>
+          <dialog id="my_modal_4" className="modal">
+            <div className="modal-box">
+              <form method="dialog">
+                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+              </form>
+              <div><h1 className="text-3xl border-b-2">Create Task </h1></div>
+              <div className="py-4 flex mt-4">
+              <input
+            type="text"
+            className=" border  p-1 border-cyan-400 rounded-lg"
+            value={editedTask.assigned}
+            onChange={(e) => setEditedTask({ ...editedTask, assigned: e.target.value })}
+          />
+              </div>
+
+              <div className="py-4 flex">
+              <select
+                   onChange={(e) => setEditedTask({ ...editedTask, status: e.target.value })}
+                   className=" border  w-32 p-1 border-cyan-400 rounded-lg"
+                 value={editedTask.status} // Set the selected value
+               >   
+              <option value="Nothing " className="text-orange-200">.Nothing</option>
+              <option value="In process " className="text-blue-400">.In process</option>
+              <option value="Archived" className="text-yellow-600  "> <span className=" border-2 bg-yellow-20 w-6 bg-yellow-200">.Archived</span></option>
+              <option value="Done" className="text-green-300">.Done</option>
+               </select>
+               </div>
+              <div className="py-4 flex">
+              <input
+            type="text"
+            value={editedTask.summary}
+            className=" border  p-1 border-cyan-400 rounded-lg"
+            onChange={(e) => setEditedTask({ ...editedTask, summary: e.target.value })}
+          />
+              </div>
+              <div className="py-4 flex">
+              <input
+            type="date"
+            value={editedTask.due}
+            className=" border  p-1 border-cyan-400 rounded-lg"
+            onChange={(e) => setEditedTask({ ...editedTask, due: e.target.value })}
+          />
+              </div>
+              <div className="py-4 flex">
+              <input
+            type="text"
+            value={editedTask.project}
+            className=" border  p-1 border-cyan-400 rounded-lg"
+            onChange={(e) => setEditedTask({ ...editedTask, project: e.target.value })}
+          />
+              </div>
+            </div>
+            <div>
+            <button className="border-2 border-cyan-400 w-32 h-10 rounded-xl hover:w-36 hover:text-white hover:h-12 " onClick={() => handleApplyChanges(editedTask)}>Apply Changes</button>           
+              
+            </div>
+          </dialog>
+                </td>
+                <td><button className="border border-cyan-300 w-14 h-6 rounded-lg" onClick={() => handleDeleteTask(task)}>Delete</button></td>
               </tr>
             </tbody>
           </table>
         </div>
       ))}
       </div>
+       
     </div>
   );
 };
 
 export default Taskpage;
+
+

@@ -17,6 +17,9 @@ import EmployeInfo from './component/employeinfo/EmployeInfo';
 // import FirebaseTable from './component/employeinfo/EmployeInfo';
 import { themeChange } from 'theme-change'
 import Taskpage from './component/employestatus/Taskpage';
+import { AuthProvider } from './component/auth/AuthContext';
+
+
 function App() {
 
   
@@ -27,7 +30,7 @@ function App() {
 
 return (
     
-    
+    <AuthProvider>
 <BrowserRouter>
    <div>
     <Routes>
@@ -43,6 +46,7 @@ return (
     </div>
 
     </BrowserRouter>
+    </AuthProvider>
   );
 }
 
