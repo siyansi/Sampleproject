@@ -25,9 +25,7 @@ const Taskpage = () => {
   const [isProjectInputVisible, setIsProjectInputVisible] = useState(false);
   const [tasks, setTasks] = useState([]);
   const [editModalVisible, setEditModalVisible] = useState(false);
-  const [editedTask, setEditedTask] = useState(
-    null
-  );
+  const [editedTask, setEditedTask] = useState(null);
   
 
   const handleEditTask = (task) => {
